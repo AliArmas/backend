@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
 
     'Dashboard',
+    'Profile'
 ]
 
 SITE_ID = 1
