@@ -1,8 +1,8 @@
 from django.db.models import fields
-from Client.models import ClientModel
+from User.models import UserModel
 from rest_framework import serializers
 
-class ClientSerializers(serializers.ModelSerializer):
+class UserSerializers(serializers.ModelSerializer):
     class Meta :
-        model = ClientModel
+        model = UserModel
         fields = ('__all__')

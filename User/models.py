@@ -1,8 +1,8 @@
 from django.db import models
-from django.db.models.fields import CharField
 
-class ClientModel(models.Model):
+class UserModel(models.Model):
     id=models.AutoField(primary_key=True,null=False)
+    name = models.CharField(max_length=50,null=False)
     username = models.CharField(max_length=50)
     email = models.EmailField(max_length=255)
     password = models.CharField(max_length=255,null=False)
