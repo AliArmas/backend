@@ -6,8 +6,8 @@ from User import views
 # ]
 # #
 urlpatterns = [
-    re_path(r'^user', views.UserViewSet.as_view()),
-    path('user_get', views.UserViewSet.as_view()),
-    path('user_delete/<slug:id>', views.UserViewSet.as_view()),
-    path('user_edit/<slug:id>', views.UserViewSet.as_view())
+    re_path(r'^register/', views.UserViewSet.as_view()),
+    #path('get', views.UserViewSet.as_view()),
+    #path('delete/<slug:id>', views.UserViewSet.as_view()),
+    #path('edit/<slug:id>', views.UserViewSet.as_view())
 ]

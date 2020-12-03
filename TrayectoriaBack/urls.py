@@ -22,6 +22,7 @@ from rest_framework import permissions
 # from rest_framework_swagger.views import get_swagger_view
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
+from rest_framework.authtoken import views
 
 
 
@@ -46,4 +47,5 @@ urlpatterns = [
     re_path(r'^api/v1/login/', include('Login.urls')),
     re_path(r'^api/v1/profile/', include('Profile.urls')),
     re_path(r'^api/v1/user/', include('User.urls')),
+    #path('api_generate_token/',views.obtain_auth_token),
 ]

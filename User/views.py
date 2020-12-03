@@ -1,8 +1,4 @@
-from django.http.response import JsonResponse
-from django.shortcuts import render   
-from django.shortcuts import get_object_or_404
 from rest_framework import status
-from django.http import Http404,HttpResponse,HttpRequest
 from rest_framework import serializers
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -13,14 +9,15 @@ from User.models import UserModel
 from User.serializers import UserSerializers
 #vistas
 class UserViewSet(APIView):
-    
+    serializer_class = UserSerializers
+    #permission_classes = (permissions.IsAuthenticatedOrReadOnly)
+    #permission_classes = permissions.IsAuthenticated
     # def post(self,request,format=None):
     #     serializer = UserSerializers(data=request.data)
     #     if(serializer.is_valid()):
     #         serializer.save()
     #         return Response(serializer.data,status=status.HTTP_201_CREATED)
     #     return Response(serializer.errors,status=status.HTTP_400_BAD_REQUEST)
-
     # def detail(request, pk):
     #     try: 
     #         client = UserModel.objects.get(pk=pk) 
@@ -40,14 +37,13 @@ class UserViewSet(APIView):
     #     elif request.method == 'DELETE': 
     #         client.delete() 
     #         return JsonResponse({'message': 'Client was deleted successfully!'}, status=status.HTTP_204_NO_CONTENT)
-            
     def post(self, request, format=None):
         serializer =  UserSerializers(data = request.data, context = {'request': request})
         if(serializer.is_valid()):
             serializer.save()
-            return Response(serializer.data)
+            return Response(serializer.data,status=status.HTTP_200_OK)
         return Response(serializers.errors,status=status.HTTP_400_BAD_REQUEST)
-        
+
     def get(self, request, format=None):
         user = UserModel.objects.all()
         serializer = UserSerializers(user, many= True)
