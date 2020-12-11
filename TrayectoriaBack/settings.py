@@ -25,35 +25,33 @@ SECRET_KEY = 'lt%g7s=^4+7-lm%)8n9#tjh%&yaqv629rsj%gkeu@=1ymk75vg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
+
 INSTALLED_APPS = [
-    #'django.contrib.sites',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-
-    # 'drf_yasg',
-    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
-    #
-    # 'rest_auth',
-    # 'rest_auth.registration',
-    # 'allauth',
-    # 'allauth.account',
-    # 'allauth.socialaccount',
+    'rest_auth',
+    'rest_auth.registration',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.google',
     'Dashboard',
     'Profile',
     'User',
+    'api',
 ]
-
 
 
 REST_FRAMEWORK = {
@@ -114,17 +112,31 @@ WSGI_APPLICATION = 'TrayectoriaBack.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'backend',
+#         'USER': 'root',
+#         'PASSWORD' : 'Qwerty123*',
+#         'HOST' : 'localhost',
+#         'PORT' : '3306'
+#     }
+# }
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
+      'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'backend',
-        'USER': 'root',
-        'PASSWORD' : 'Qwerty123*',
+        'USER': 'armas',
+        'PASSWORD' : 'qwerty123*',
         'HOST' : 'localhost',
-        'PORT' : '3306'
-    }
+        'PORT' : '5432'
+        }
+    # 'default': {
+    #      'ENGINE': 'django.db.backends.sqlite3',
+    #      'NAME': BASE_DIR / 'db.sqlite3',
+    # }
+    
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -148,6 +160,18 @@ AUTHENTICATION_BACKENDS = (
    "django.contrib.auth.backends.ModelBackend",
    "allauth.account.auth_backends.AuthenticationBackend"
 )
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 
 
 # Internationalization
