@@ -35,8 +35,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.google',
-
-    
+    'social_django',
     'Dashboard',
     'Profile',
     'User',
@@ -124,7 +123,8 @@ AUTH_PASSWORD_VALIDATORS = [
 
 AUTHENTICATION_BACKENDS = (
    "django.contrib.auth.backends.ModelBackend",
-   "allauth.account.auth_backends.AuthenticationBackend"
+   "allauth.account.auth_backends.AuthenticationBackend",
+    'social_core.backends.google.GoogleOAuth2',
 )
 
 SOCIALACCOUNT_PROVIDERS = {
