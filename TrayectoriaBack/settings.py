@@ -87,14 +87,14 @@ WSGI_APPLICATION = 'TrayectoriaBack.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-      'default': {
+    'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'backend',
         'USER': 'armas',
         'PASSWORD' : 'qwerty123*',
         'HOST' : 'localhost',
         'PORT' : '5432'
-        }
+    }
     # 'default': {
     #      'ENGINE': 'django.db.backends.sqlite3',
     #      'NAME': BASE_DIR / 'db.sqlite3',
