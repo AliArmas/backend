@@ -88,7 +88,7 @@ DATABASES = {
         'NAME': 'backend',
         'USER': 'webuser',
         'PASSWORD' : 'root123* ',
-        'HOST' : '100.25.159.222',
+        'HOST' : 'localhost',
         'PORT' : '5432'
     }
     # 'default': {
