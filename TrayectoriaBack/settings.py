@@ -13,7 +13,7 @@ SECRET_KEY = 'lt%g7s=^4+7-lm%)8n9#tjh%&yaqv629rsj%gkeu@=1ymk75vg'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['backend-django.ddns.net']
+ALLOWED_HOSTS = ['backend-django.ddns.net','54.173.52.181']
 
 
 # Application definition
